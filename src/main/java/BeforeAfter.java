@@ -7,10 +7,6 @@ import java.util.concurrent.TimeUnit;
 public class BeforeAfter {
     ChromeDriver driver;
 
-    void timeWait(double sec) throws InterruptedException {
-        int secWait = (int) (sec * 1000);
-        TimeUnit.MILLISECONDS.sleep(secWait);
-    }
 
     @Before
     public void setUp() {
@@ -26,4 +22,11 @@ public class BeforeAfter {
     public void close() {
         driver.quit();
     }
+
+    static void timeWait(double sec) throws InterruptedException {
+        int secWait = (int) (sec * 1000);
+        TimeUnit.MILLISECONDS.sleep(secWait);
+        System.out.printf("ВЫполнено ожидание %s секунд \n", sec);
+    }
+
 }
