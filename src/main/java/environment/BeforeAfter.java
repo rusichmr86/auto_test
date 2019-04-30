@@ -1,3 +1,5 @@
+package environment;
+
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -5,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class BeforeAfter {
-    ChromeDriver driver;
+    protected ChromeDriver driver;
 
 
     @Before
@@ -23,7 +25,7 @@ public class BeforeAfter {
         driver.quit();
     }
 
-    static void timeWait(double sec) throws InterruptedException {
+    public static void timeWait(double sec) throws InterruptedException {
         int secWait = (int) (sec * 1000);
         TimeUnit.MILLISECONDS.sleep(secWait);
         System.out.printf("ВЫполнено ожидание %s секунд \n", sec);

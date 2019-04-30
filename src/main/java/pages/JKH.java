@@ -1,10 +1,12 @@
+package pages;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-class JKH extends AbstractPage {
-    JKH(WebDriver driver) {
+public class JKH extends Abstract {
+    public JKH(WebDriver driver) {
         super(driver);
     }
 
@@ -23,10 +25,14 @@ class JKH extends AbstractPage {
     @FindBy(xpath = "//div[@data-qa-file=\"UIRegions\"]//div[@data-qa-file=\"Text\"]/span")
     private WebElement firstCityRegion;
 
-    String fisrtCategoryName;
+    private String fisrtCategoryName;
+
+    public String getFisrtCategoryName(){
+        return fisrtCategoryName;
+    }
 
 
-    void necessaryCity(String city) {  // если город по умолчанию отличается от нужного, то вводим нужный
+    public void necessaryCity(String city) {  // если город по умолчанию отличается от нужного, то вводим нужный
         if (!isJKHin(city)) {
             JKHin.click();
             regionInput.sendKeys(city);
@@ -37,7 +43,7 @@ class JKH extends AbstractPage {
     }
 
 
-    void clickFirstCategory() {
+    public void clickFirstCategory() {
         saveNameFirstCategoryName();
         firstCategory.click();
     }
@@ -50,7 +56,7 @@ class JKH extends AbstractPage {
         fisrtCategoryName = firstCategory.getText();
     }
 
-    void assertSearchElementInAllCategories(String element) {
+    public void assertSearchElementInAllCategories(String element) {
         Assert.assertFalse(allCategories.getText().contains(element));
     }
 }

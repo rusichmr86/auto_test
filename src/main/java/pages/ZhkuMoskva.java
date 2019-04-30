@@ -1,12 +1,15 @@
+package pages;
+
+import environment.BeforeAfter;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
-class ZhkuMoskva extends AbstractPage {
+public class ZhkuMoskva extends Abstract {
 
-    ZhkuMoskva(WebDriver driver) {
+    public ZhkuMoskva(WebDriver driver) {
         super(driver);
     }
 
@@ -46,12 +49,12 @@ class ZhkuMoskva extends AbstractPage {
     private String textSumInsurance = "Поле заполнено неверно";
     private String textSumPayErorr = "Поле заполнено неверно";
 
-    void clickPayZhkuInMoscow() {
+    public void clickPayZhkuInMoscow() {
         payZhkuInMoscow.click();
     }
 
     // через onlinePayJKU.click() увожу фокус из поля, чтобы ошибка появилась сразу
-    void assertErrorFields() throws  InterruptedException {
+    public void assertErrorFields() throws  InterruptedException {
 
         BeforeAfter.timeWait(1);  // из-за того, что тест бежит слишком быстро, пришлось поставить ожидаение
 
