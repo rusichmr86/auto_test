@@ -30,6 +30,6 @@ public class Tests extends BeforeAfter {
         jkh.necessaryCity("г. Санкт-Петербург");                                // 13
         timeWait(1);
         jkh.assertSearchElementInAllCategories(jkh.getFisrtCategoryName());     // 14
-    }
 
+    }
 }
